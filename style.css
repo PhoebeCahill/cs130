@@ -34,6 +34,11 @@ p, li {
     padding-top: 40px;
     padding-bottom: 40px;
 }
+#lessons {
+    background-color: #E26D5A;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 
 #values {
     background-color: #F6E8EA;
