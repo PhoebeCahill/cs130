@@ -1,0 +1,96 @@
+article, aside, section, main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   display: grid;
+   grid-template-columns: 2fr 2fr 2fr 1.5fr;
+   grid-template-rows: 1fr 4fr 4fr;
+   grid-template-areas: 
+   "a . b b"
+   "c d e f"
+   "g g g f";
+   min-height: 100vh;
+   /*make space between different sections*/
+   row-gap: 20px;
+   column-gap: 20px;
+}
+
+.menu1 {
+   grid-area: a;
+   background-color: pink;
+}
+
+.menu2 {
+   grid-area: b;
+   background-color: yellow;
+   
+}
+
+.card1 {
+   grid-area: c;
+   background-color: lightblue;
+
+}
+
+.card2 {
+   grid-area: d;
+   background-color: lightblue;
+
+}
+
+.card3 {
+   grid-area: e;
+   background-color: lightblue;
+
+}
+
+.aside {
+   grid-area: f;
+   background-color: gray;
+
+}
+
+.main {
+   grid-area: g;
+   background-color: lightblue;
+
+}
+
+@media (max-width: 1024px) {
+   .container {
+      /* tablet layout here */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 5fr 3fr 2fr;
+      grid-template-areas: 
+      "a b"
+      "f f "
+      "c d"
+      "e e"
+      "g g"
+      ;
+   }
+
+   
+}
+
+@media (max-width: 720px) {
+   .container {
+      /* mobile layout here */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 3fr 3fr 3fr 1fr 2fr;
+      grid-template-areas: 
+      "a . "
+      "b b"
+      "c c"
+      "d d"
+      "e e"
+      "f f"
+      "g g";
+   }
+   
+}

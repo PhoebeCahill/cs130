@@ -1,0 +1,60 @@
+/* I add this line to all of my CSS files by default */
+body * {
+    box-sizing: border-box;
+}
+
+/*
+----------
+Properties
+----------
+align-items: 		(flex-start, flex-end, space-around, space-between, center)
+justify-content: 	(same as align-items)
+flex-direction: 	(row, column, row-reverse, column-reverse)
+flex-wrap: 		    (no-wrap, wrap)
+*/
+
+body * {
+    border: solid 1px black;
+    padding: 5px;
+    margin: 5px;
+}
+
+main {
+    /*Put container into flexmode to control its childrne */
+    display: flex;
+    /*Add equal spaces between all content */
+    justify-content: space-between;
+
+}
+
+/*Make sections equally spaced*/
+section {
+    width: 22%;
+    height: 300px;
+    /*Put container into flexmode to control its childrne */
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*Change to four squares if the format is a tablet*/
+@media only screen and (max-width: 1000px) {
+    /*want wrap on main but section on width*/
+    main {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    section {
+        width: 48%;
+    }
+   
+}
+
+/*Only put what changes from tablet setting*/
+@media only screen and (max-width: 600px) {
+   
+    section {
+        width: 100%;
+    }
+}
+
