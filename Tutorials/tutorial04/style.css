@@ -16,6 +16,7 @@ article, aside, section, main {
    /*make space between different sections*/
    row-gap: 20px;
    column-gap: 20px;
+   padding: 20px;
 }
 
 .menu1 {
@@ -72,6 +73,8 @@ article, aside, section, main {
       "e e"
       "g g"
       ;
+      padding: 10px;
+
    }
 
    
@@ -82,15 +85,21 @@ article, aside, section, main {
       /* mobile layout here */
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 3fr 3fr 3fr 1fr 2fr;
+      grid-template-rows: 1fr 1fr 3fr 3fr 3fr 2fr;
       grid-template-areas: 
       "a . "
       "b b"
       "c c"
       "d d"
       "e e"
-      "f f"
       "g g";
+      
+      padding: 10px;
+
+   }
+
+   .aside {
+      display: none;
    }
    
 }
