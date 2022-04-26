@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+.div1, .div2, .div3 {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.div1 {
+    background-color: #F9F9F9;
+    border: solid 1px #444;
+    padding: 20px;
+}
+
+/* div1 button is hidden by default (paragraph, hidden message, button are hidden)*/
+.div1 button, .hidden-message {
+    display: none;
+}
+
+.div1:hover {
+    background: #EEE;
+}
+
+/* when hover over div1, control its child button and hidden message as noted here
+and have things show */
+.div1:hover button, .div1:hover .hidden-message {
+    display: block;
+}
+
+
+.div2 {
+    background: purple;
+    /* need to put properties listed in commas, or do all */
+    transition: background 1s ease-out, opacity 1s ease-out;
+}
+
+/* this is another hover effect */
+.div2:hover {
+    background: blue;
+    opacity: 0.5;
+}
+
+.hidden-message2 {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+.div3 {
+    background: rgb(128, 82, 128);
+    transition: all 1s ease-out;
+}
+
+.div3:active, .div3:focus {
+    background: rgb(211, 152, 235);
+}
+
+.div3:active .hidden-message2, .div3:focus .hidden-message2 {
+    opacity: 1;
+}

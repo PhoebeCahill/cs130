@@ -89,19 +89,6 @@ aside {
 aside i {
     margin-right: 15px;
     margin-bottom: 20px;
-    
-}
-/* HOVER EFFECTS EXTRA CREDIT PART 1 */
-/* Added individual id tags to buttons of the aside so could brighten them individually
-when hovered */
-#homebutton:hover {
-    filter: brightness(200%);    
-}
-#searchbutton:hover {
-    filter: brightness(200%);    
-}
-#libbutton:hover {
-    filter: brightness(200%);    
 }
 
 #selectors {
@@ -112,6 +99,20 @@ when hovered */
 #selectors a {
     color: rgb(129, 122, 122);
 }
+/* HOVER EFFECTS EXTRA CREDIT PART 1 */
+/* Added individual id tags to buttons of the aside so could brighten them 
+individually when hovered */
+#homebutton:hover {
+    filter: brightness(200%);    
+}
+#searchbutton:hover {
+    filter: brightness(200%);    
+}
+#libbutton:hover {
+    filter: brightness(200%);    
+}
+
+
 
 
 /********************************/
@@ -130,7 +131,6 @@ header a {
     padding: 10px;
     margin-right: 20px;
 }
-
 
 
 nav {
@@ -166,28 +166,51 @@ nav a:hover {
 }
 
 #featured-content section { 
-    flex-basis: 20%;
+    flex-basis: 18%;
+    /* a little under 20% to account for margin */
     padding: 10px;
+    margin: 7px; 
+    background-color: rgb(51, 48, 48);
+    border-radius: 5%;
+    
+}
+#featured-content section h2 {
+    font-size: 17px;
+}
+
+#featured-content section p {
+    font-size: 15px;
+    color: darkgray;
 }
 
 #featured-content section img {
     height: 100%;
     width: 100%;
+    border-radius: 50%;
 }
 
-/* Hide button until hover */
-button {
-    display: none;
-}
 
-/* HOVER EFFECTS EXTRA CREDIT PART 4 */
-/* HOW TO ADD BUTTON ONCE YOU HOVER?? Also, how do I make the button like 
-the green spotify button?*/
+/* organize button and text properly on the card */
+.card-footer {
+    display:flex;
+    flex-direction: column;
+}
+/* HOVER EFFECTS EXTRA CREDIT PART 4 and make the button green and circular */
+
+#featured-content section button {
+    background-color: green;
+    color:white;
+    /* make circle border */
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+}
 #featured-content section:hover button {
-    opacity: 1;
+    visibility: visible;
+    align-self: flex-end;
+
 }
-
-
 
 
 /**************************/
@@ -198,8 +221,9 @@ the green spotify button?*/
 /* Tablet*/
 @media only screen and (max-width: 1000px) {
     #featured-content section { 
-        flex-basis: 33%;
+        flex-basis: 30%;
         padding: 5px;
+        margin: 5px;
 
     }
 }
@@ -212,12 +236,11 @@ the green spotify button?*/
     }
 
     #featured-content section { 
-        flex-basis: 50%;
+        flex-basis: 47%;
         padding: 10px;
 
     }
 
-    /* Why isn't this working? */
     aside {
         display: none;
     }
