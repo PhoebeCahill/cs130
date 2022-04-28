@@ -113,8 +113,6 @@ individually when hovered */
 }
 
 
-
-
 /********************************/
 /* Part B: Header & Nav Styling */
 /********************************/
@@ -195,6 +193,7 @@ nav a:hover {
     display:flex;
     flex-direction: column;
 }
+
 /* HOVER EFFECTS EXTRA CREDIT PART 4 and make the button green and circular */
 
 #featured-content section button {
