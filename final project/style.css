@@ -1,0 +1,60 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    color: black;
+
+}
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar a, .navbar strong {
+    margin-right: 15px;
+}
+
+ul {
+    display: none;
+}
+
+main {
+    margin-left: 70px;
+}
+
+
+
+/* hide sublist unless hovered */
+
+
+/* Once implement flex-box more, then adjust these accordingly. Just wanted to
+get them set up below. */
+
+/* Tablet*/
+@media only screen and (max-width: 1000px) {
+    .navbar { 
+        padding: 10px;
+        /* decerase font size and adjust padding so all fit on one line nicely */
+    }
+
+    main { 
+        margin-left: 30px;
+        /* decerase font size and adjust padding so all fit on one line nicely */
+
+    }
+} 
+/* Phone */
+@media only screen and (max-width: 600px) {
+    .navbar { 
+        padding: 5px;
+        /* decerase font size and adjust padding so all fit on one line nicely */
+    }
+
+    main { 
+        margin-left: 5px;
+        /* decerase font size and adjust padding so all fit on one line nicely */
+
+    }
+    
+} 
