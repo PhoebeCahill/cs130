@@ -1,9 +1,10 @@
-<html>
+<html lang="en">
     <head>
         <title>Spotify Player</title>
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/62a7c74d0d.js" crossorigin="anonymous" defer></script>
+        <!-- audio player was created by Sarah so that you can actually play music -->
         <script type="text/javascript" src="js/audio-player.js" defer></script>
         <script type="text/javascript" src="js/scripts.js" defer></script>
     </head>
@@ -25,7 +26,9 @@
                 <input type="search" 
                     placeholder="Search for Artists or Songs" 
                     id="search" 
-                    value="" />
+                    value="" 
+                    aria-label="Input Search for Artist, Song, or Album"
+                    />
             </header>
             <article id="featured-content">
                 <section id="artist-section">

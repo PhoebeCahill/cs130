@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Roboto+Slab&family=Yanone+Kaffeesatz:wght@500&display=swap');
+    </style>
     <head>
         <!-- stylesheets and metadata go here -->
         <title>Projects and Initiatives</title>       
         <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <!-- HTML content tags go here -->
         <nav class="navbar">
-            <a href="homepage.html" aria-label="Homepage Button">Women in Business</a>
+            <a href="homepage.html" aria-label="Homepage Button">
+                <img class="logo" 
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUSEhUSEhUUGRIYGhgaGRwVGBgSHBwYHBocHh0cHRojJC8nJCUtIx4cJzonLS81NjU2HyQ8QDs1Qy40NTEBDAwMEA8QHxISHzUsJCY1Pzo4NDQ0PjQ1PzQxNDs0ODQ0NTQ0NDQxNDQ0NDQ3NDQ0MTQ0NDQ0PzQ0MTQ0NTQ0NP/AABEIAMgAyAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcDBAUBAgj/xABFEAACAQMBBQQFBgkNAQAAAAABAgADBBESBQYhMUETIlFhBzJxgZEUQlJysbIjNDVic4Khs/AWJDM2VHSDhJKiwcLR8f/EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACoRAAICAQQCAQMDBQAAAAAAAAABAhEDEiExUQRBE2GB8CLB4RQykaGx/9oADAMBAAIRAxEAPwC5oiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAieEzGtZScBgT4AgwDJETFTrK4yrBh+aQYBmieT2AIiIAiIgCIiAIiIAiIgCIiAIiata/pIcVKlNT4M6qfgTANmJr1bpETWzqE+kWAX48p90qquAysCDyIIIimRa4M0REEnkgO+PpDp2hajbAVLgcGJPcQ+Bx6zeQ+PSanpK31NANZ2rfhiPwjrzRT81fzj49Pbyq7Ymxq17VFKgpZjxYngqr9Jj0E6MWJNapcEWZNrbx3V2xNeu7A/NB0oPYg4TmKxByCQfKW3szcnZtrUp0LuqK13U4BNRUZwTwReIHmx4zsbwbr7KoUe0uKK00yF1JrBBbl6v/k0+aC2SFFYbC34vbQgLVapTHNKpNQY8jzX3GTyyvbfawNWzdra/UZZdWnV7SPWGfnc/EcpFd4NxNNI3ez6gubXiTpIZ1HXl62PcR4SG21y9J1qU2ZKinKspwQZaoy3jz+clZRUlTLcsd87i1qGjfIW0nBIAVh5+DD+Myd7N2nSuU10WDL16EHwI6SAbI2hR25b9nV0pf014MBjI+kB9HxXpmRxKlfZ9wQCUqqcEdGH/AGUx8MMqdbSXr0cksk8MqlvHv2XfPZHd2N5UvF0nC1gO8v8A2XxH2SQzinGUXTW51wmpq0fUREguIiIB5ESIb8b4rs9AiAPdOO4p5KPpPjpnkOslJt0gS6JT67G2ndq9e5vhRZU1sjVGQopBIZ6acFGAfPhMKbcu7GotDaLNVtnGUrI5ZgPp0qw4t9UzT4/qQ7rYuafLMACScAcSTw4SD2m8FW1q06dd+2taoBo1lGWIPLOPW5jPX7JoelPeNlVdn25Jq1ca9PPSxwqDzY/s9sj4nqS7Kxmnf0OfvPvtcXlb5HssPpJKl09dscyp+an532TTpei24ZDUrXFFX4ls6qmD11Pw/wCZKdmbuDZey7h1OLs0Kju45qwQkKp8F/aeM093HLbu12Yksad0STxJOW45ml0v08XRch9WjtDYbgk5osccCalBx9Fh0OPYZIrS47Skb7ZjNTZf6egDqCnxC8mH8cMYnd3Ct1utjJTue/TbWp1HOFDHGD0x08JX7CtsHaXDLU/gKlFj9o+0S8ZW2va/wzLJjUl+5aO6u9a3Y0VAFrgcujDxX/yfe++8Y2falxg13ytIH6XViPBefwHWcC23dVr6ldUGxZsvbqynSBjB0+XEg+zPhK8342+b+7d1J7FO5TH5g+d+sePw8JHxxlO48c/wRic9LUuUcqxtKt5cLTTL1qr8zxyTxZmPxJM/QO6+71KwoClTALc3bHFn6k+Q6DpK53aRdk7OfaNRR8qrjTQVuinkffjUfIL4ydejqu1TZlB6jFnY1mZjxJY16hJlc0m+ODVFZ7EOd4eP9qr/AGvJ/wCln8mP+kp/elf7D/rD/mq/3nlgeln8mP8ApKf3ol/eiTT9DP4hV/vD/u6c4XpJ3PVdd5aAYU/h0X5pIB1gdOYJHnnxnc9DP4jV/vDfu6c5m2N4DZ7dqq/G2rLSSqp4jBQANjyz8CZCclkbQKz2ffPb1VrUmKupypH8cvKXKyUtt2S3FMKtygwR9FxzQ/mnmD5jzlcb+7tmwuiEB7Cpl6Z8B1T9X7CJ8bibyGwulZiewfC1R5dH9q/ZmdErklOPKKTgppxlwbVKpUoVAyllqI3sIYcxLc3V3gW8pZOBWXAdf+R5GRn0g7EBAvaWCpwHxyOfVf7B8JDtk7Se2rLWpnivMdGXqpm0oR8jHqXP5seZGUvHyaXwXvGJo7Lv0uKSVkOVYZ8weoPmDwm9PLaadM9VNNWj2IiQSaW0r1bei9aocIilm9gHIecqjc1Bd3b7UvOINZKdJTxBrOQFA8kXB/8Aks3eLYy3tubd3dEYqWNPAJAOccQRjOD7pz7bc+hTp2tJGqBbap2q8V775zl+HHn0xLxkoxfbBHk/pd4P0Y/cvMtK0o3WyrKzq4DV6R7Jj82qial+Iz+0dZJRu1TDXr63zeKFqcV7o0Mnd4eDdczH/Jalos011MWjKycVyxGPX4eXTEnUgV/uJtVUWtZXw/FWaumrmrUydaj38cfWmPcel8rvLna11/R0ddTxw2CQB9RB92S/bfo7t7q4e4apWR3wWFMqFzgAnivXr751tlbsUbazqWVNn7OoKgZjjUda6SeWOAwOXSXeSNOuWVS3sjmzNptd7Fv7ip6zi6OOeF7PuqPYMD3TDuz/AFcrfo7r/vJRs7dWlb2VSxR6hp1BUBZiuoaxg44Y/ZPqw3Yp0bF7BXc02WopY6dWHznkMdfCV1L12WIruycbuViOfZ3X2vNbbFA7W2LTuyv85oBiT1YL3anxA1e0SZ2G7FOjYvYK7mmy1FLNp1YfOeQx18Js7v7ESytxbIzMgLHL4JOo5OcACNaTtc2Cltn74vS2ZWsRq1M2Eb6NN8l1/j6Z8Jzt0Nim9vKVDB0Z1OR0RcFvjyz4kSzKvootGZiKtwASSACmB5Du5ne3V3PobNao1JnZnABLlSQB0GAOZ+wTV5oJPTyyKIx6ZaYW2tlUAKKjAAcAAE4CSL0Y/km2/wAX99Um5vVuxT2iiJVd1CMWGjSCSRjjkGbewNkLZWyW1NmZE1YLY1HUzMc4GObTFyTgl7JKe2H/AFh/zVf7zywPSz+TH/SU/vTLabhUKd78uWpWNTtHqaSU06n1ZGNOcd7xnZ3j2Gl/QNvUZlQsrZTGcqc9QRLSmnJPoEU9DP4jV/vDfu6chnpI/LDf4H3Vls7rbu09nUWo0ndlZy+X05yVVccAPoicvbu4VC7ujdPUrK50cEKae6ABzUnpCyJTcvQN7fTYAv7R6WB2g71M+Dgcs+B5e+fnh0KkqQQQcEHgQZ+qZR3pW2F8nu+3QYp3GW4chUHrD38G95l/HnvpZDJV6MNtreWj2NfvPTUgA/Oonhj9U8PYVkR23s5rWu9FvmnunxQ+qfhI5u3tdrO6p3C57jd4D5yHgy/CW16QLFbi3p3tLDABckdabcVPuJ/3GdGKXx5a9P8A6cnl4tcNS5RyfR/tvsa3ydz+DqHu55K/T48vhLTzPz6rEEEHBHEY55l07r7UF1bJUPrjuv8AWHP48D75TzcVPWvZn4Wa04P1wduIicJ6Bo7RvloUy75PEKAvFmYnCqB4mcnZ23Xe7rW1WmqCmgYkOX5hTxOB0adm7tEqhQ4yFZXXiRhlOQZB7kE7VuaQ51kROH0StMsf9Iaa44xkmn0YZZSjTXZ2tk70dvQuK+gAUmIUAnL8O6PaTgSR0idI1Y1YGccs9cSvd3WAe4p47lOu9ZgPo0s6F/1aT+oZ5s81KqW9yXzdVrngTltNJdWpQMjCgA5HmJeeJW64M4ZnSvdljap7Kjqq1S3a4LN21e6CphmUAcTqC58TjynYW5NrcX9RGYrSpIveYtmq+nDHP52fiYfj9MleT2iw57K0qI1Ky+VO2l3pMupm1PVesV4nj6qryHPnymfY9uKF7bDUw0WxqVizkjLBuBB6AkH4SrwbN3+IleRulXJM9pbRFEooGqpUJCLnGcDJYnoAOZ9k1d2Nrtd0TVdQo1sqgEnIAHHJ88/CfG9aotu9yR+Epo6o2SMdoAv2kfCRG2tQX2fasWCrSas+lip7+W4kewD3yYY1KP1InklGf0LMkc2pvKtIsEGVRxTZjkjtCM6FUesQOfEATV3Af+bHLHv1KjIpJYhBpBHx+2am8VkrXdrbJlQ9R674JzqwO8PD1WkRxpTcZei0sjcFKO1ki2XtJqlStRdVD0SmSpJUh11AjPI+InWEq3aN01FL63RiymrTVWPFtbEswLdfVxxnUtrhad+7MxNO0t0QYJOWwqgAdSSzD2y0sPtFYZ/TJ2XHHxHSaWyL816et6T0jkjS/A4HX2Sv2uzbVtoa2770QfA63C5A9hc/CbIodo2zbPU3qGq+kkHiNXEg8ORHvj4K9/f7WR/UW9l9ix8xmVbR2i9Kxq9izDt7lkp97JVMcSCT7Bmdp7Tskq247jV09UHUVp00Op3YcNTngT5jicSrw17LLyL9E21AjORjxkc372OL2wqIozUUdpTxx7y9B7Rke+RmyuxU2V8mVjqWnVd8Z4KrMyqT0LNj3AyXbnVw9lRAOSqhT5EdIljePfpl4ZVJ1Xqz85S4PRftRbqzq2FU5NMEAHmaT5+w5+IkC382R8kv6qAYRzrTw0tk49x1D3TBubtj5He0qxOKedD/AFG4N8OB906ZrXC0aV6Z1No2bUKr0n9ZGK+3wPv5yU+jjaei4agx7tUZX668f2jPwEy+krZ2molyo7rjSxH0l5H3r92Q+zuWpVEqL6yMGHtBzOpVmw/nJ4zvDm+/+i/YmC0ripTR19VlVh7CMiJ41Htp2rM5mguzKQrm4CDtmGC2TnGAOXLoJvxCbXBDSfJz7TZVGi1RqaBWqHLnidR4+PtPCYbPYNvRLGnSVSwIJGeR5gceA9k60SdT7I0x6OSmwbdVpKKY00mLUxlu6xOc8+PHxitsC2eo1VqKF2BDE5OcjHLlnHXnOrEan2Roj0cQbr2gTR2I05B4sxPDzznHlymzcbGt6lVaz01NRcBWOenLhyOPOdKI1y7Y0R6NW/skroadVcocZGSORyOR8ZipbKorUNUIO0KBM5J7gx3cZx0E357Ck1tZLim7aOds3Y9C21djTVS3PGTn4nl5T5vdi0azF6ian06M6mB08TgYPDnz5zpzyNTu73GlVVbHIG7lt2XYdkOz1aiMtkt46s5z05zw7tWmrV2CatOnrjGMcs4z5852Ik65dsj449I5VPd+2VHQUV0v6+SzFuOeLE558ecWWwLagwelSCuBpBBYnHvP7Z1Yka5dsaI9I4v8l7PSy9guGOTxbn5HOV92J9vu5asgQ0V0jPIsDx55YHJ5DmegnXiTrl2x8cekcivu9bOqo1FdKjChcqMZzjgRnjx4zpUaKooRAAoGAFGAB5CZp5Ibb5ZKjFbpEA9Ke7dS7p0atujPVRipVeZRuOfcR/uMrP8AkZf/ANlrfAT9GRNIZpRVE0Qe2sK9zshaNxTZLmmuAGHEmn6pH1lwPaTIX/Jm8/s9T4CXXGJfF5MsaaRz5fGjkds4G5qVUtFp10ZHQsoDcyucg/A490TviJzz/W9RvBaI6T6iIgsIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAf/2Q==" 
+                alt="Women in Business Logo">
+            </a>            
             <a href="meet.html" aria-label="Meet Us Button">Meet Us</a>
-            <strong>Projects and Initiatives
-                <ul>
-                    <li>Finance</li>
-                    <li>Consulting</li>
-                    <li>Marketing</li>
-                </ul>
-            </strong>
+            <div class="dropdown">
+                <strong>Projects and Initiatives</strong>
+                <div class="dropdown-content">
+                <a href="#">Finance</a>
+                <a href="#">Consulting</a>
+                <a href="#">Marketing</a>
+                </div>
+            </div>
             <a href="corporate.html" aria-label="Corporate Partnerships Button">Corporate Partnerships</a>
             <a href="join.html" aria-label="Join Us Button">Join Us</a>
             <a href="contact.html" aria-label="Contact Us Button">Contact Us</a>
