@@ -8,6 +8,9 @@
         <title>Join Us</title>       
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="index.js" defer></script>
+        <!-- Took this code for menu top-bar from https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <!-- HTML content tags go here -->
@@ -28,7 +31,12 @@
             </div>       
             <a href="corporate.html" aria-label="Corporate Partnerships Button">Corporate Partnerships</a>
             <strong>Join Us</strong>
-            <a href="contact.html" aria-label="Contact Us Button">Contact Us</a>        </nav>
+            <a href="contact.html" aria-label="Contact Us Button">Contact Us</a>  
+            <!-- add for mobile interactivity -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>      
+        </nav>
         <main>
             <h1>Join Us</h1>
             <p>Here is some text for the homepage.</p>

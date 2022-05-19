@@ -1,5 +1,7 @@
 //simplifies using APIs (created by Sarah; do not spam this)
 const baseURL = 'https://www.apitutor.org/spotify/simple/v1/search';
+const artistBaseURLUnsimplified = "https://www.apitutor.org/spotify/v1/";
+const albumBaseURLUnsimplified = "https://www.apitutor.org/spotify/v1/albums/";
 
 // Note: AudioPlayer is defined in audio-player.js
 const audioFile = 'https://p.scdn.co/mp3-preview/bfead324ff26bdd67bb793114f7ad3a7b328a48e?cid=9697a3a271d24deea38f8b7fbfa0e13c';
@@ -34,8 +36,9 @@ const getTracksHTML = (track) => {
     // } 
     
     //else {}
-        //added onclick event handler here to tracks 
-        return `<button class="track-item preview" aria-label="Preview ${track.name}"
+
+    //added onclick event handler here to tracks 
+    return `<button class="track-item preview" aria-label="Preview ${track.name}"
         onclick="handleTrackClick(event);"
         data-preview-track="${track.preview_url}">
         <img src="${track.album.image_url}" alt = "Photo of ${track.name} Album">
@@ -100,7 +103,7 @@ const getTracks = (term) => {
             };
          }
          //this code handles the case where no tracks are found
-         else if (tracks.length===0) {
+         else  {
             document.querySelector("#tracks").innerHTML = `<p>No tracks found for ${term}.</p>`;
          }
      });
@@ -117,7 +120,8 @@ const getAlbumsHTML = (album) => {
 
         console.log("album 1");
 
-        return `<section class="album-card" id="${album.id}" onclick="handleAlbumClick(event);">
+        return `<section class="album-card" data-id="${album.id}" 
+        onclick="handleAlbumClick(event);">
         <div>
             <img src="${album.image_url}" alt = "Photo of ${album.name} Album">
             <h2>${album.name}</h2>
@@ -170,7 +174,7 @@ const getArtistHTML = (artist) => {
     }
 
     //return image card, but make it based on what the user puts in the search
-    return `<section class="artist-card" id="${artist.id}" onclick="handleArtistClick(event);">
+    return `<section class="artist-card" data-id="${artist.id}" onclick="handleArtistClick(event);">
     <div>
         <img src="${artist.image_url}" alt = "Photo of ${artist.name} Album">
         <h2>${artist.name}</h2>
@@ -213,7 +217,6 @@ const getArtist = (term) => {
 };
 
 
-//why aren't these working??
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
@@ -228,26 +231,146 @@ const handleTrackClick = (ev) => {
 
 //EXTRA CREDIT --> why are these not working??
 const handleArtistClick = (ev) => {
-    const artistName = ev.currentTarget.getAttribute('artist.name');
+    //look at how to do this in HW #3
+    const artistID = ev.currentTarget.getAttribute('data-id');
 
-    //How to change the URL accordingly?
-    baseURL = `https://api.spotify.com/v1/artists/${artistName}/top-tracks`;
+    console.log(artistID);
 
-    getTracks(artistName);
+    document.querySelector("#tracks").innerHTML ="";
+
+    //why is this not fetching? even with the hard code?
+    fetch (artistBaseURLUnsimplified + "artists/" + artistID  + "/top-tracks?country=us")
+    //fetch ("https://www.apitutor.org/spotify/v1/artists/0LcJLqbBmaGUft1e9Mm8HV/top-tracks?country=us")
+    //takes response and converts into json object which we can work with
+     .then(response =>  response.json())
+     .then (tracks => {
+        console.log(tracks);
+        let firstTracks = [];
 
 
-    console.log("here they are " + getTracks(artistName));
-}
+        //can limit number of tracks returned here by looping as done here
+        //or can put limit into fetch URL
+        if (tracks.length>=5) {
+            //pick the first artist that you go across (similar to other parts of 
+            //homework where you might just need to use the loop)
+            firstTracks = [tracks[0],tracks[1], tracks[2], tracks[3], tracks[4]];
+            //set innerHTML to the getArtistHTML function output with putting in
+            //firstArtist as input
+            console.log(firstTracks);
+            //or could have used classic for loop with i<5 and tracks[i]
+            for (const track of firstTracks) {
+                //need to do += so adds on top of each other
+               document.querySelector("#tracks").innerHTML += getTracksHTML(track);
+            };
+        } else if (tracks.length>0 && tracks.length<=4) {
+            //fill firstTracks array with data information 
+            let i =0;
+            //could have also likely simplified this by just using a classic for loop
+            for (const track of tracks) {
+               firstTracks[i] = tracks[i];
+               i++;
+            }
+            for (const track of firstTracks) {
+               //need to do += so adds on top of each other
+              document.querySelector("#tracks").innerHTML += getTracksHTML(track);
+           };
+        }
+        //this code handles the case where no tracks are found
+        else  {
+           document.querySelector("#tracks").innerHTML = `<p>No tracks found.</p>`;
+        };
+     });
+    
+};
+
+//is this necessary?
+const getTracksHTMLforAlbumClick = (track) => {
+    //take in tracks array, so need to cycle through for each track to render image
+    
+    console.log(track);
+        //if track image does not exist, put this blank image instead
+    if (!track.image_url) {
+        track.image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+    }
+
+    //EXTRA CREDIT! --> why isn't this working??
+    // if (!track.preview_url) {
+    //     //no audio preview availible if no preview URL --> why isn't this working?
+    //     document.querySelector("i.play-track") = null;
+    // } 
+    
+    //else {}
+
+    //different naming convention for different API
+    return `<button class="track-item preview" aria-label="Preview ${track.name}"
+        onclick="handleTrackClick(event);"
+        data-preview-track="${track.external_urls.spofity}">
+        <img src="${track.preview_url}" alt = "Photo of ${track.name} Album">
+        <i class="fas play-track fa-play" aria-hidden="true"></i>
+        <div class="label">
+            <h2>${track.name}</h2>
+            <p>
+            ${track.artists.name}
+            </p>
+        </div>
+    </button>`
+    
+};
+
 
 const handleAlbumClick = (ev) => {
 
-    let
+    //look at how to do this in HW #3
+    const albumID = ev.currentTarget.getAttribute('data-id');
 
-    const albumName = ev.currentTarget.getAttribute('album.name');
+    console.log(albumID);
 
-    getTracks(albumName);
+    document.querySelector("#tracks").innerHTML ="";
 
-}
+    fetch (albumBaseURLUnsimplified+albumID+"/tracks")
+    //takes response and converts into json object which we can work with
+     .then(response =>  response.json())
+     .then (tracks => {
+
+        //data holds list of 20 tracks
+         console.log(tracks);
+
+         let firstTracks = [];
+
+         //can limit number of tracks returned here by looping as done here
+         //or can put limit into fetch URL
+         if (tracks.length>=5) {
+             //pick the first artist that you go across (similar to other parts of 
+             //homework where you might just need to use the loop)
+             firstTracks = [tracks[0],tracks[1], tracks[2], tracks[3], tracks[4]];
+             //set innerHTML to the getArtistHTML function output with putting in
+             //firstArtist as input
+             console.log(firstTracks);
+             //or could have used classic for loop with i<5 and tracks[i]
+             for (const track of firstTracks) {
+                 //need to do += so adds on top of each other
+                document.querySelector("#tracks").innerHTML += getTracksHTMLforAlbumClick(track);
+             };
+         } else if (tracks.length>0 && tracks.length<=4) {
+             //fill firstTracks array with data information 
+             let i =0;
+             //could have also likely simplified this by just using a classic for loop
+             for (const track of tracks) {
+                firstTracks[i] = tracks[i];
+                i++;
+             }
+             for (const track of firstTracks) {
+                //need to do += so adds on top of each other
+               document.querySelector("#tracks").innerHTML += getTracksHTMLforAlbumClick(track);
+            };
+         }
+         //this code handles the case where no tracks are found
+         else  {
+            document.querySelector("#tracks").innerHTML = `<p>No tracks found.</p>`;
+         }
+     });
+
+};
 
 
 document.querySelector('#search').onkeyup = (ev) => {

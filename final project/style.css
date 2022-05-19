@@ -2,7 +2,6 @@ body {
     font-family: 'Roboto Slab', serif;
     margin: 0;
     color: #151515;
-
 }
 
 /* reduce upward padding */
@@ -13,6 +12,8 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     height: 20vh;
+    /* This caused the dropdown to disappear */
+    /* overflow: hidden; */
 }
 
 .logo {
@@ -30,8 +31,20 @@ body {
 
 }
 
+/* Hide the link that should open and close the topnav on small screens */
+.navbar .icon {
+  display: none;
+}
+
+.navbar a:hover {
+    background-color: #c2c4e533;
+}
+.navbar strong:hover {
+    background-color: #c2c4e533;
+}
+
 main {
-    margin-left: 70px;
+    margin-left: 8vh;
 }
 
 
@@ -74,31 +87,55 @@ get them set up below. */
 
 /* Tablet*/
 @media only screen and (max-width: 1000px) {
-    .navbar { 
+    .navbar a img {
+        height: 25vh;
+    }
+    .navbar {
+        height: 19vh;
         padding: 10px;
-        /* decerase font size and adjust padding so all fit on one line nicely */
+
+    }
+    .navbar a, .navbar strong { 
+        font-size: 13px;
     }
 
     main { 
-        margin-left: 30px;
+        margin-left: 6vh;
+        font-size: small;
         /* decerase font size and adjust padding so all fit on one line nicely */
 
-    }
+    } 
+
+    /* Need to also change the font here */
+  .dropdown-content {
+    min-width: 120px;
+    box-shadow: 0px 6px 12px 0px #5B5F97;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 9px 12px;
+   
+  }
 } 
 /* Phone */
 @media only screen and (max-width: 600px) {
-    /* .navbar a img {
+    .navbar a img {
+        height: 20vh;
         /* /* display: block; */
         /* flex-basis: 100%; 
         margin-right: 450px;
         padding: 20px;  */
         /* height: 20vh; */
         /* display: contents; */
-    
+    }
 
+  
     .navbar {
-        height: 15vh;
-        padding: 5px;
+        height: 18vh;
+        padding: 0px;
+        /* is this overflow necessary? */
+        overflow: hidden;
 
     }
     .navbar a, .navbar strong { 
@@ -106,7 +143,7 @@ get them set up below. */
     }
 
     main { 
-        margin-left: 15px;
+        margin-left: 4vh;
         font-size: x-small;
         /* decerase font size and adjust padding so all fit on one line nicely */
 
@@ -122,9 +159,33 @@ get them set up below. */
   /* Links inside the dropdown */
   .dropdown-content a {
     padding: 6px 8px;
-   
   }
 
+  /* add a button for mobile layout to have the menu appear; put logo large in the corner */
+  /* used https://www.w3schools.com/howto/howto_js_topnav_responsive.asp for code */
+    .navbar a:not(:first-child) {display: none;}
+    .navbar .dropdown {display: none;}
+    .navbar strong {display: none;}
+    .navbar a.icon {
+      font-size: 10vh;
+      display: block;
+    }
+
+  /* why is this button not working? */
+  .navbar.responsive {
+    position: relative;
+    flex-direction: column;
+  }
+  .navbar.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a, .navbar.responsive strong, .navbar.responsive .dropdown  {
+    display: block;
+    text-align: left;
+  }
+  
 }
 
 
