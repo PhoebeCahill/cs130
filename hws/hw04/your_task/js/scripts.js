@@ -24,18 +24,20 @@ const getTracksHTML = (track) => {
     //take in tracks array, so need to cycle through for each track to render image
     
     console.log(track);
-        //if track image does not exist, put this blank image instead
+    
+    //if track image does not exist, put this blank image instead
     if (!track.image_url) {
         track.image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
     }
 
-    //EXTRA CREDIT! --> why isn't this working??
+    //EXTRA CREDIT #3 --> why isn't this working??
     // if (!track.preview_url) {
-    //     //no audio preview availible if no preview URL --> why isn't this working?
-    //     document.querySelector("i.play-track") = null;
-    // } 
-    
-    //else {}
+    // console.log("remove image");
+    // //no audio preview availible if no preview URL --> why isn't this working?
+    // document.querySelector(".fas play-track fa-play").style.visibility = hidden;
+
+    // };
+
 
     //added onclick event handler here to tracks 
     return `<button class="track-item preview" aria-label="Preview ${track.name}"
@@ -218,6 +220,7 @@ const getArtist = (term) => {
 
 
 const handleTrackClick = (ev) => {
+
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
 
@@ -227,14 +230,29 @@ const handleTrackClick = (ev) => {
 
     document.querySelector("footer .track-item").innerHTML = ev.currentTarget.innerHTML;
 
+    
 }
 
-//EXTRA CREDIT --> why are these not working??
+
+document.querySelector('#search').onkeyup = (ev) => {
+    // Number 13 is the "Enter" key on the keyboard, so onkeyup means when you 
+    //release the enter key
+    console.log(ev.keyCode);
+    if (ev.keyCode === 13) {
+        ev.preventDefault();
+        //calls search function above
+        search();
+    }
+};
+
+
+
+//EXTRA CREDIT Part 1: Clik on artist and get top tracks
 const handleArtistClick = (ev) => {
     //look at how to do this in HW #3
     const artistID = ev.currentTarget.getAttribute('data-id');
 
-    console.log(artistID);
+    console.log("artist id " + artistID);
 
     document.querySelector("#tracks").innerHTML ="";
 
@@ -243,9 +261,10 @@ const handleArtistClick = (ev) => {
     //fetch ("https://www.apitutor.org/spotify/v1/artists/0LcJLqbBmaGUft1e9Mm8HV/top-tracks?country=us")
     //takes response and converts into json object which we can work with
      .then(response =>  response.json())
-     .then (tracks => {
-        console.log(tracks);
-        let firstTracks = [];
+     .then (obj => {
+
+        //need to access array of obj
+        let tracks = obj.tracks;
 
 
         //can limit number of tracks returned here by looping as done here
@@ -260,7 +279,7 @@ const handleArtistClick = (ev) => {
             //or could have used classic for loop with i<5 and tracks[i]
             for (const track of firstTracks) {
                 //need to do += so adds on top of each other
-               document.querySelector("#tracks").innerHTML += getTracksHTML(track);
+               document.querySelector("#tracks").innerHTML += getTracksHTMLforArtistClick(track);
             };
         } else if (tracks.length>0 && tracks.length<=4) {
             //fill firstTracks array with data information 
@@ -272,7 +291,7 @@ const handleArtistClick = (ev) => {
             }
             for (const track of firstTracks) {
                //need to do += so adds on top of each other
-              document.querySelector("#tracks").innerHTML += getTracksHTML(track);
+              document.querySelector("#tracks").innerHTML += getTracksHTMLforArtistClick(track);
            };
         }
         //this code handles the case where no tracks are found
@@ -283,8 +302,8 @@ const handleArtistClick = (ev) => {
     
 };
 
-//is this necessary?
-const getTracksHTMLforAlbumClick = (track) => {
+
+const getTracksHTMLforArtistClick = (track) => {
     //take in tracks array, so need to cycle through for each track to render image
     
     console.log(track);
@@ -293,31 +312,28 @@ const getTracksHTMLforAlbumClick = (track) => {
         track.image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
     }
 
-    //EXTRA CREDIT! --> why isn't this working??
-    // if (!track.preview_url) {
-    //     //no audio preview availible if no preview URL --> why isn't this working?
-    //     document.querySelector("i.play-track") = null;
-    // } 
     
-    //else {}
+    //add artists' names together (did this with Pun and https://stackoverflow.com/questions/64809405/concat-object-values-from-key-with-comma)
+    const ret = track.artists.map((x) => x.name).join(', ');
+    console.log(ret);
 
-    //different naming convention for different API
+    //added onclick event handler here to tracks 
     return `<button class="track-item preview" aria-label="Preview ${track.name}"
         onclick="handleTrackClick(event);"
-        data-preview-track="${track.external_urls.spofity}">
-        <img src="${track.preview_url}" alt = "Photo of ${track.name} Album">
+        data-preview-track="${track.preview_url}">
+        <img src="${track.album.images[0].url}" alt = "Photo of ${track.name} Album">
         <i class="fas play-track fa-play" aria-hidden="true"></i>
         <div class="label">
             <h2>${track.name}</h2>
             <p>
-            ${track.artists.name}
+            ${ret}
             </p>
         </div>
     </button>`
     
 };
 
-
+//EXTRA CREDIT Part 2: Clik on album and get top tracks
 const handleAlbumClick = (ev) => {
 
     //look at how to do this in HW #3
@@ -330,10 +346,13 @@ const handleAlbumClick = (ev) => {
     fetch (albumBaseURLUnsimplified+albumID+"/tracks")
     //takes response and converts into json object which we can work with
      .then(response =>  response.json())
-     .then (tracks => {
+     .then (obj => {
+         console.log("albums: "+ obj);
+         console.log("albums: "+ obj.items);
 
-        //data holds list of 20 tracks
-         console.log(tracks);
+         //access tracks from object
+         let tracks = obj.items;
+         console.log(tracks[0]);
 
          let firstTracks = [];
 
@@ -373,13 +392,33 @@ const handleAlbumClick = (ev) => {
 };
 
 
-document.querySelector('#search').onkeyup = (ev) => {
-    // Number 13 is the "Enter" key on the keyboard, so onkeyup means when you 
-    //release the enter key
-    console.log(ev.keyCode);
-    if (ev.keyCode === 13) {
-        ev.preventDefault();
-        //calls search function above
-        search();
+const getTracksHTMLforAlbumClick = (track) => {
+    //take in tracks array, so need to cycle through for each track to render image
+    
+    console.log(track);
+        //if track image does not exist, put this blank image instead
+    if (!track.image_url) {
+        track.image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
     }
+
+
+    //add artists' names together (did this with Pun and https://stackoverflow.com/questions/64809405/concat-object-values-from-key-with-comma)
+    const ret = track.artists.map((x) => x.name).join(', ');
+    console.log(ret);
+
+    //different naming convention for different API
+    return `<button class="track-item preview" aria-label="Preview ${track.name}"
+        onclick="handleTrackClick(event);"
+        data-preview-track="${track.preview_url}">
+        <img src="${track.image_url}" alt = "Photo of ${track.name} Album">
+        <i class="fas play-track fa-play" aria-hidden="true"></i>
+        <div class="label">
+            <h2>${track.name}</h2>
+            <p>
+            ${ret}
+            </p>
+        </div>
+    </button>`
+    
 };
+

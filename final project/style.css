@@ -36,7 +36,8 @@ body {
   display: none;
 }
 
-.navbar a:hover {
+/* hover effect for all except the logo */
+.navbar a:not(:first-child):hover {
     background-color: #c2c4e533;
 }
 .navbar strong:hover {
@@ -45,6 +46,10 @@ body {
 
 main {
     margin-left: 8vh;
+}
+
+#projects2 {
+  display:none;
 }
 
 
@@ -87,6 +92,7 @@ get them set up below. */
 
 /* Tablet*/
 @media only screen and (max-width: 1000px) {
+  /* changing the logo here */
     .navbar a img {
         height: 25vh;
     }
@@ -106,7 +112,7 @@ get them set up below. */
 
     } 
 
-    /* Need to also change the font here */
+  /* Need to also change the font here */
   .dropdown-content {
     min-width: 120px;
     box-shadow: 0px 6px 12px 0px #5B5F97;
@@ -118,10 +124,13 @@ get them set up below. */
    
   }
 } 
+
+
 /* Phone */
 @media only screen and (max-width: 600px) {
+  /* changing the logo here */
     .navbar a img {
-        height: 20vh;
+        height: 30vh;
         /* /* display: block; */
         /* flex-basis: 100%; 
         margin-right: 450px;
@@ -134,8 +143,12 @@ get them set up below. */
     .navbar {
         height: 18vh;
         padding: 0px;
-        /* is this overflow necessary? */
-        overflow: hidden;
+        margin-left: 10vh;
+        margin-right: 10vh;
+        margin-bottom: 5vh;
+        justify-content: space-between;
+        /* This seems to be key in changing alignment: */
+        align-items:inherit;
 
     }
     .navbar a, .navbar strong { 
@@ -143,53 +156,61 @@ get them set up below. */
     }
 
     main { 
-        margin-left: 4vh;
-        font-size: x-small;
+        margin-left: 10vh;
         /* decerase font size and adjust padding so all fit on one line nicely */
 
     } 
 
-    /* Need to also change the font here */
-  .dropdown-content {
-    min-width: 80px;
-    box-shadow: 0px 4px 8px 0px #5B5F97;
+  /* Remove extra dropdown content here */
+  .dropdown:hover .dropdown-content {display: none;}
+
+  .navbar .dropdown {
+    display:none;
   }
+
   
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    padding: 6px 8px;
-  }
 
   /* add a button for mobile layout to have the menu appear; put logo large in the corner */
   /* used https://www.w3schools.com/howto/howto_js_topnav_responsive.asp for code */
     .navbar a:not(:first-child) {display: none;}
-    .navbar .dropdown {display: none;}
     .navbar strong {display: none;}
     .navbar a.icon {
       font-size: 10vh;
-      display: block;
+      display: block; 
+      /* float: right; */
+      
+      /* could this help? */
+      /* display: flex;
+      align-items: right; */
     }
 
   /* why is this button not working? */
   .navbar.responsive {
     position: relative;
     flex-direction: column;
+    /* adjust height of navbar so options can drop down */
+    height: 50vh;
   }
   .navbar.responsive a.icon {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .navbar.responsive a, .navbar.responsive strong, .navbar.responsive .dropdown  {
-    display: block;
-    text-align: left;
+  
+  /* how to align these items below the hamburger button?? */
+  .navbar.responsive a:not(:first-child), .navbar.responsive strong, .navbar.responsive #projects2  {
+    display: block; 
+    /* want to position dropdown below the hamburger button */
+    align-items: end;
+    /* right: 100px; This only seeems to be changing the button*/
   }
+
   
 }
 
 
 /* Questions:
 1. How to make mobile configuration work with the dropdown menu button?
+2. How to get tablet nav bar all in-line? 
 
 */
