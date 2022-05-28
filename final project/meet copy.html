@@ -1,3 +1,5 @@
+<!-- This page was an attempt to add the rotating card effect to the Meet Us page. It did not end up working
+out, but I wanted to leave my code here as proof of my attempt. See the bottom for the associated CSS. -->
 <!DOCTYPE html>
 <html lang="en">
     <style>
@@ -279,3 +281,70 @@
         </main>
     </body>
 </html>
+
+
+<!-- Associated CSS code (not used):
+
+.execPhotos {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  /* makes this scroll over nav bar when scroll down */
+  position: absolute;
+  background-color: white;
+  /* z-index: 100; */
+}
+
+
+/* FLIP CARD EFFECT */
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.card {
+  background-color: transparent;
+  width: 30vh;
+  height: 20vh;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+
+
+-->

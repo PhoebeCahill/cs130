@@ -233,8 +233,6 @@ display:none;
 
 /* MEET US PAGE */
 
-/* MEET US PAGE */
-
 /* make container the flex box */
 .execPhotos {
   display:flex;
@@ -491,23 +489,9 @@ display:none;
 
 
 /* Questions:
-3. How to get navbar hidden when scroll on meet us page (both on mobile and computer)? Event handler? or see css above?
-4. Work on exec board page --> format
-5. Hamburger dropdown menu highlight only of text?
-
-TODOs
-1. Make cards flip over when clicked upon using this link: https://www.w3schools.com/howto/howto_css_flip_card.asp
-b. still need to add css from that link
-c. making changes on meet copy just in case I mess up
-d. after finishing adding css, link homepage to meet copy and test it
-e. Once everything works, make meet copy the offical meet page and the old meet page called "old meet page"
-
 UPDATED TO Dos
-1. Revert to old meet us page and try to implement flip
-give one card an id and then change the style of that card
-use my own code and not the other code from the internet
-
-2. make main over the navbar always (might have to go page by page as done with projects)
+1. Make main over the navbar always (might have to go page by page as done with projects)
 adjust dropdown order
 or have navbar disappear when scroll down
+2. Add forms to contact, join, corporate pages
 */
