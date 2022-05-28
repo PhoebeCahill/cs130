@@ -22,8 +22,8 @@ main p {
   font-size: 15px;
 }
 
-/* Make sure all pages scrolls above the navbar */
-#projectsPage, #corporatePage, #joinPage, #contactPage {
+/* Make sure ALL pages scrolls above the navbar */
+#projectsPage, #corporatePage, #joinPage, #contactPage, {
   background-color: white;
   position: relative;
   z-index: 100;
