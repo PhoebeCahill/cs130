@@ -2,7 +2,19 @@ body {
     margin: 0;
 }
 
+main {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+
+
 #mapid { 
     height: 50vh; 
     border: solid 1px #000;
+}
+
+
+#restaurant-detail {
+    
 }

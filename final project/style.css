@@ -1,112 +1,338 @@
 body {
-    font-family: 'Roboto Slab', serif;
-    margin: 0;
-    color: #151515;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; */
+  /* font-family: 'Fraunces', serif; */
+  font-family: 'Roboto Slab', serif;
+
+  margin: 0;
+  color: #151515;
+  min-height: 100vh;
+  width: 100%;
 }
+
+main {
+  max-width: 100%;
+
+}
+
+/* PROJECTS PAGE */
+main ul {
+  font-size: 20px;
+}
+main p {
+  font-size: 15px;
+}
+
+/* Make sure all pages scrolls above the navbar */
+#projectsPage, #corporatePage, #joinPage, #contactPage {
+  background-color: white;
+  position: relative;
+  z-index: 100;
+}
+
+
+/* trying to make dropdown still show above */
+#projectsPage h1, #corporatePage h1, #joinPage h1, #contactPage h1 {
+  margin-top:38vh;
+  margin-bottom: 10vh;
+}
+
+#dropdownProjects a {
+  font-size: smaller;
+  
+}
+
+
+
+
+/* from  https://freefrontend.com/css-scroll-effects/*/
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap');
+
+header {
+  height: 200vh;
+}
+
+
+/* HOMEPAGE CONTAINERS AND SCROLLING */
+.container {
+  /* hide fixed overflow contents */
+  clip: rect(0, auto, auto, 0);
+
+  /* does not work if overflow = visible */
+  /* what does this do? it seems to do nothing when I comment it out */
+  overflow: hidden;
+
+  /* only works with absolute positioning */
+  position: absolute;
+
+  /* Make sure containers are full-width and height */
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  
+  
+  /* safari hack */
+  -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
+
+}
+
+.container_solid {
+  background: white;
+
+  /* add this so dropdown shows above the first container (but not the second) */
+  z-index:-1;
+  
+  /* position this container at the top of its parent element */
+  /* removing this allows for the navbar to reappear */
+  /* top: 0; */
+}
+
+.title_wrapper {
+  position: fixed;
+  display: block;  
+  margin: auto;
+  width: 100%;
+  /* center the text wrapper vertically */
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.title_wrapper h1 {
+  text-align: center;
+  font-size: 64px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+}
+
+.container_solid .title_wrapper h1 {
+  /* fallback text color */
+  color: purple;
+}
+
+.container_image {
+  /* Grab a free image from unsplash --> used university image here */
+  background-image: url(https://media.beam.usnews.com/e3/a8e6faf36f4bc5e57a814a6b99abce/Northwestern-Hero1.jpg);
+  background-size:100vw auto;
+  background-position: center;
+  background-attachment: fixed;
+  
+  /* position the second container below the first container */
+  top: 100vh;
+}
+
+.container_image .title_wrapper h1 {
+  color: white;
+}
+
+section {
+  /* reduce height below 100vh so can show navbar */
+  min-height: 70vh;
+  /* padding: 2em; */
+  max-width: 800px; 
+  margin-left: 2vh;
+}
+
+section h2, p {
+  font-family: 'Roboto Slab', serif;
+
+
+}
+
+/* NAVBAR CODE AND FORMATING */
 
 /* reduce upward padding */
 .navbar {
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: 20vh;
-    /* This caused the dropdown to disappear */
-    /* overflow: hidden; */
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 20vh;
+  /* This caused the dropdown to disappear */
+
+  /* from https://www.w3schools.com/howto/howto_css_fixed_menu.asp#:~:text=To%20create%20a%20fixed%20top%20menu%2C%20use%20position%3Afixed%20and,the%20height%20of%20your%20menu. */
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /*Full width */
+  
 }
 
 .logo {
-    height: 30vh;
+  height: 30vh;
 }
 
 .navbar a, .navbar strong {
-    /* design elements of navbar */
-    background-color: #FEFEFF;
-    color: #151515;
-    font-size: 16px;
-    border: none;
-    /* Get rid of link underline with code */
-    text-decoration: none;
+  /* design elements of navbar */
+  background-color: #FEFEFF;
+  color: #151515;
+  font-size: 16px;
+  border: none;
+  /* Get rid of link underline with code */
+  text-decoration: none;
 
 }
 
 /* Hide the link that should open and close the topnav on small screens */
-.navbar .icon {
-  display: none;
-}
+.icon {
+  visibility: hidden;
+} 
 
 /* hover effect for all except the logo */
 .navbar a:not(:first-child):hover {
-    background-color: #c2c4e533;
+  background-color: #c2c4e533;
 }
 .navbar strong:hover {
-    background-color: #c2c4e533;
+  background-color: #c2c4e533;
 }
 
 main {
-    margin-left: 8vh;
+  margin-left: 8vh;
+  /* add top margin to main so that the nav bar can remain visible */
+  margin-top: 30vh;
 }
 
 #projects2 {
-  display:none;
+display:none;
 }
 
 
-/* Dropdown Button (help from https://www.w3schools.com/howto/howto_css_dropdown.asp) */
-  /* Position the dropdown cotent */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Hide dropdown by default */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #c2c4e533; 
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px #5B5F97;
-    z-index: 1; 
-  }
-  
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #151515;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #c2c4e533;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
+/* DROPDOWN BUTTON (help from https://www.w3schools.com/howto/howto_css_dropdown.asp) */
+/* Position the dropdown cotent */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide dropdown by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #c2c4e533; 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px #5B5F97;
+  z-index: 1; 
+}
 
 
-/* Once implement flex-box more, then adjust these accordingly. Just wanted to
-get them set up below. */
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #151515;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #c2c4e533;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* MEET US PAGE */
+
+/* MEET US PAGE */
+
+/* make container the flex box */
+.execPhotos {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  /* makes this scroll over nav bar when scroll down */
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+}
+
+/* then use flexbox to organize the cards */
+/* .card {
+} */
+
+/* adjust the image size to make sure it fits in the card (target via .card img and .card h2 to scale) */
+/* .execPhotos img {
+  display: flex;
+  flex-wrap: wrap;
+
+  /* why is this not making the nav bar disappear? */
+  /* background-color: white;
+  z-index: 10;
+  margin: 0px;
+}  */
+
+.card  img {
+  width: 40vh;
+}
+
+/* position this below the images and size accordingly */
+.card h2 {
+  text-align: center;
+  font-size: 15px;
+  margin-top:0;
+  margin-bottom: 30px;
+}
+
+.card  p  {
+  text-align: center;
+  font-size: 19px;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+/* .VPCR {
+  font-size:5px !important;
+} */
+
+/* Trying to get the navbar to disappear on this page 
+.execPhotos {
+  position: absolute;
+
+  /* Make sure container is full-width and height */
+  /* height: 100vh;
+  left: 0;
+  width: 100%; */
+
+  /* how to get it so that the navbar is hidden once scroll on this page? */
+  /* z-index: 2; */
+/* } */ 
+
+
+
+ 
 
 /* Tablet*/
 @media only screen and (max-width: 1000px) {
+
+  /* decrease font size */
+  .title_wrapper h1 {
+    font-size: 40px;
+  }
+
+  /* format image container so no repeat of the image --> HELP */
+  .container_image { 
+    background-size:160vw auto;
+  }
+
+
   /* changing the logo here */
     .navbar a img {
         height: 25vh;
     }
     .navbar {
         height: 19vh;
-        padding: 10px;
+        /* margin-right: 5vh; */
+        margin-right: 5vh;
+        /* padding: 10px; */
 
     }
     .navbar a, .navbar strong { 
-        font-size: 13px;
+        font-size: 14px;
     }
 
     main { 
-        margin-left: 6vh;
+        margin-left: 3vh;
         font-size: small;
         /* decerase font size and adjust padding so all fit on one line nicely */
 
@@ -128,10 +354,22 @@ get them set up below. */
 
 /* Phone */
 @media only screen and (max-width: 600px) {
+
+  /* decrease font size */
+  .title_wrapper h1 {
+    font-size: 30px;
+  }
+
+  /* format image container so no repeat of the image */
+  .container_image { 
+    background-size:400vw auto;
+  }
+
+
   /* changing the logo here */
     .navbar a img {
         height: 30vh;
-        /* /* display: block; */
+        /* display: block; */
         /* flex-basis: 100%; 
         margin-right: 450px;
         padding: 20px;  */
@@ -141,6 +379,7 @@ get them set up below. */
 
   
     .navbar {
+        width: 100%;
         height: 18vh;
         padding: 0px;
         margin-left: 10vh;
@@ -149,10 +388,22 @@ get them set up below. */
         justify-content: space-between;
         /* This seems to be key in changing alignment: */
         align-items:inherit;
+        position: fixed; /* Make it stick/fixed */
+        top: 0; /* Stay on top */
+        /* transition: top 0.3s; */
 
     }
     .navbar a, .navbar strong { 
-        font-size: 10px;
+      /* do not make this more than 19px otherwise the whole dropdown will not show */
+        font-size: 19px;
+    }
+    .navbar .icon {
+      font-size: 30px;
+      display:block;
+      visibility: visible; 
+      /* right margin is necessary so this icon shows up */
+      margin-right: 20vh;
+      margin-top: 12vh;
     }
 
     main { 
@@ -172,37 +423,67 @@ get them set up below. */
 
   /* add a button for mobile layout to have the menu appear; put logo large in the corner */
   /* used https://www.w3schools.com/howto/howto_js_topnav_responsive.asp for code */
-    .navbar a:not(:first-child) {display: none;}
+
+  /* the issue seems to be here: remove these two lines with code for specific classes of what I want to disappear*/
+    /* .navbar a:not(:last-child)  {display: none;} */
+
+    .join, .meet, .corporate, #projects2, .contact {display:none};
+
+    .logoButton {display: block;}
+
     .navbar strong {display: none;}
-    .navbar a.icon {
-      font-size: 10vh;
-      display: block; 
-      /* float: right; */
-      
-      /* could this help? */
-      /* display: flex;
-      align-items: right; */
-    }
 
   /* why is this button not working? */
   .navbar.responsive {
-    position: relative;
+    /* keeps navbar at the top of the page */
+    position: fixed;
     flex-direction: column;
     /* adjust height of navbar so options can drop down */
     height: 50vh;
+    top:0;
+    left:0;
+    width:100%;
+
+    /* make sure this is above the meet us page */
+    z-index: 200;
   }
+
+
   .navbar.responsive a.icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 0vh;
   }
   
-  /* how to align these items below the hamburger button?? */
+  /* how to align these items below the hamburger */
   .navbar.responsive a:not(:first-child), .navbar.responsive strong, .navbar.responsive #projects2  {
-    display: block; 
+    /* display: block;  */
     /* want to position dropdown below the hamburger button */
-    align-items: end;
+    /* align-items: end; */
     /* right: 100px; This only seeems to be changing the button*/
+    /* position: absolute;
+    right: 0px; */
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20vh;
+  }
+
+  /* remove second header on mobile */
+  section {
+    /* reduce height below 100vh so can show navbar */
+    /* min-height: 100vh; */
+
+    /* trying to get navbar to disapear on final page of mobile */
+    /* width: 100%; */
+
+    position: absolute;
+    margin-left: 2vh;
+    /* put this behind the dropdown */
+    z-index: -10;
+    margin-top: 15vh;
+    background-color: white;
+
+    /* position: absolute is necessary for z-index to be effective */
   }
 
   
@@ -210,7 +491,23 @@ get them set up below. */
 
 
 /* Questions:
-1. How to make mobile configuration work with the dropdown menu button?
-2. How to get tablet nav bar all in-line? 
+3. How to get navbar hidden when scroll on meet us page (both on mobile and computer)? Event handler? or see css above?
+4. Work on exec board page --> format
+5. Hamburger dropdown menu highlight only of text?
 
+TODOs
+1. Make cards flip over when clicked upon using this link: https://www.w3schools.com/howto/howto_css_flip_card.asp
+b. still need to add css from that link
+c. making changes on meet copy just in case I mess up
+d. after finishing adding css, link homepage to meet copy and test it
+e. Once everything works, make meet copy the offical meet page and the old meet page called "old meet page"
+
+UPDATED TO Dos
+1. Revert to old meet us page and try to implement flip
+give one card an id and then change the style of that card
+use my own code and not the other code from the internet
+
+2. make main over the navbar always (might have to go page by page as done with projects)
+adjust dropdown order
+or have navbar disappear when scroll down
 */
