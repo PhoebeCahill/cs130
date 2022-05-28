@@ -23,7 +23,7 @@ main p {
 }
 
 /* Make sure ALL pages scrolls above the navbar */
-#projectsPage, #corporatePage, #joinPage, #contactPage, {
+#projectsPage, #corporatePage, #joinPage, #contactPage {
   background-color: white;
   position: relative;
   z-index: 100;
