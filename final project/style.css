@@ -33,14 +33,26 @@ main p {
 /* trying to make dropdown still show above */
 #projectsPage h1, #corporatePage h1, #joinPage h1, #contactPage h1 {
   margin-top:38vh;
-  margin-bottom: 10vh;
+  margin-bottom: 3vh;
 }
 
 #dropdownProjects a {
   font-size: smaller;
-  
 }
 
+#BCGPhoto {
+  width:100vh;
+}
+
+/* Position Google Forms Properly */
+
+iframe {
+  width: 100%;
+  margin-top: 5vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
 
 
 
@@ -404,11 +416,15 @@ display:none;
       margin-top: 12vh;
     }
 
-    main { 
-        margin-left: 10vh;
+    /* main { 
+        margin-left: 10vh; */
         /* decerase font size and adjust padding so all fit on one line nicely */
+    /* }  */
 
-    } 
+    /* this messses up the projects page --> FIX */
+    h1 {
+      margin-top: 0 !important;
+    }
 
   /* Remove extra dropdown content here */
   .dropdown:hover .dropdown-content {display: none;}
@@ -489,9 +505,26 @@ display:none;
 
 
 /* Questions:
+1. How to get link for my final project, not my original cs130 page, on github? (see CampusWire)
+
+2. How to get the navbar dropdown to show above the main on all of the pages but the homepage?
+I still want the navbar to hide when I scroll though and the homepage to function properly.
+
+If I can do this,then remove the excess upward padding on the h1 on all of the pages besides the homepage.
+
+
+3. How to center the form on the mobile layout? 
+
+4. How to make forms accessible? Can I just use an alt tag? Remove alt tags 
+
+5. Review accessibility WAVE check --> how to correct teh error
+
+
 UPDATED TO Dos
-1. Make main over the navbar always (might have to go page by page as done with projects)
-adjust dropdown order
-or have navbar disappear when scroll down
-2. Add forms to contact, join, corporate pages
+1. Adjust navbar dropdown
+2. Adjust form format
+3. Accessibility check and review 
+4. Edit entire website
+5. Fix projects mobile page --> where did top-level bar bo
+
 */
