@@ -19,7 +19,7 @@ main ul {
   font-size: 20px;
 }
 main p {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 /* Make sure ALL pages scrolls above the navbar */
@@ -169,6 +169,10 @@ section h2, p {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /*Full width */
+
+  /* /* Make navbar scroll above all other code, but I want it to be scrolled over */
+  /* z-index:9999;
+  background-color:white; */
   
 }
 
@@ -180,7 +184,7 @@ section h2, p {
   /* design elements of navbar */
   background-color: #FEFEFF;
   color: #151515;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   /* Get rid of link underline with code */
   text-decoration: none;
@@ -241,7 +245,9 @@ display:none;
 .dropdown-content a:hover {background-color: #c2c4e533;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* MEET US PAGE */
 
@@ -309,7 +315,12 @@ display:none;
 /* } */ 
 
 
-
+/* increase size of headings once make screen smaller */
+@media only screen and (max-height: 500px) {
+  #projectsPage h1, #corporatePage h1, #joinPage h1, #contactPage h1 {
+    margin-top:17%;
+  }
+}
  
 
 /* Tablet*/
@@ -357,13 +368,27 @@ display:none;
   /* Links inside the dropdown */
   .dropdown-content a {
     padding: 9px 12px;
-   
+  }
+
+  /* adjust so dropdown is always visible */
+  #projectsPage h1, #corporatePage h1, #joinPage h1, #contactPage h1 {
+    margin-top:35vh;
+  }
+  @media only screen and (max-height: 500px) {
+    #projectsPage h1, #corporatePage h1, #joinPage h1, #contactPage h1 {
+      margin-top:23%;
+    }
   }
 } 
 
 
 /* Phone */
 @media only screen and (max-width: 600px) {
+
+  /* center iframes */
+  iframe {
+    margin-left: -10px;
+  }
 
   /* decrease font size */
   .title_wrapper h1 {
@@ -385,6 +410,10 @@ display:none;
         padding: 20px;  */
         /* height: 20vh; */
         /* display: contents; */
+    }
+
+    #BCGPhoto {
+      width: 90%;
     }
 
   
@@ -441,11 +470,11 @@ display:none;
   /* the issue seems to be here: remove these two lines with code for specific classes of what I want to disappear*/
     /* .navbar a:not(:last-child)  {display: none;} */
 
-    .join, .meet, .corporate, #projects2, .contact {display:none};
+  .join, .meet, .corporate, #projects2, .contact {display:none};
 
-    .logoButton {display: block;}
+  .logoButton {display: block;}
 
-    .navbar strong {display: none;}
+  .navbar strong {display: none;}
 
   /* why is this button not working? */
   .navbar.responsive {
@@ -505,26 +534,10 @@ display:none;
 
 
 /* Questions:
-1. How to get link for my final project, not my original cs130 page, on github? (see CampusWire)
 
-2. How to get the navbar dropdown to show above the main on all of the pages but the homepage?
-I still want the navbar to hide when I scroll though and the homepage to function properly.
-
-If I can do this,then remove the excess upward padding on the h1 on all of the pages besides the homepage.
-
-
-3. How to center the form on the mobile layout? 
-
-4. How to make forms accessible? Can I just use an alt tag? Remove alt tags 
-
-5. Review accessibility WAVE check --> how to correct teh error
 
 
 UPDATED TO Dos
-1. Adjust navbar dropdown
-2. Adjust form format
-3. Accessibility check and review 
-4. Edit entire website
-5. Fix projects mobile page --> where did top-level bar bo
+1. Edit entire website
 
 */
