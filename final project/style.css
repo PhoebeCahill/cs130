@@ -170,6 +170,8 @@ section h2, p {
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /*Full width */
 
+  margin-left:2vh;
+
   /* /* Make navbar scroll above all other code, but I want it to be scrolled over */
   /* z-index:9999;
   background-color:white; */
