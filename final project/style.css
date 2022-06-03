@@ -64,7 +64,7 @@ header {
 }
 
 
-/* HOMEPAGE CONTAINERS AND SCROLLING */
+/* HOMEPAGE CONTAINERS AND SCROLLING (from https://freefrontend.com/css-scroll-effects/)*/
 .container {
   /* hide fixed overflow contents */
   clip: rect(0, auto, auto, 0);
@@ -171,10 +171,6 @@ section h2, p {
   width: 100%; /*Full width */
 
   margin-left:2vh;
-
-  /* /* Make navbar scroll above all other code, but I want it to be scrolled over */
-  /* z-index:9999;
-  background-color:white; */
   
 }
 
@@ -265,20 +261,6 @@ display:none;
   z-index: 100;
 }
 
-/* then use flexbox to organize the cards */
-/* .card {
-} */
-
-/* adjust the image size to make sure it fits in the card (target via .card img and .card h2 to scale) */
-/* .execPhotos img {
-  display: flex;
-  flex-wrap: wrap;
-
-  /* why is this not making the nav bar disappear? */
-  /* background-color: white;
-  z-index: 10;
-  margin: 0px;
-}  */
 
 .card  img {
   width: 40vh;
@@ -299,22 +281,6 @@ display:none;
   flex-wrap: wrap; */
 }
 
-/* .VPCR {
-  font-size:5px !important;
-} */
-
-/* Trying to get the navbar to disappear on this page 
-.execPhotos {
-  position: absolute;
-
-  /* Make sure container is full-width and height */
-  /* height: 100vh;
-  left: 0;
-  width: 100%; */
-
-  /* how to get it so that the navbar is hidden once scroll on this page? */
-  /* z-index: 2; */
-/* } */ 
 
 
 /* increase size of headings once make screen smaller */
@@ -406,12 +372,6 @@ display:none;
   /* changing the logo here */
     .navbar a img {
         height: 30vh;
-        /* display: block; */
-        /* flex-basis: 100%; 
-        margin-right: 450px;
-        padding: 20px;  */
-        /* height: 20vh; */
-        /* display: contents; */
     }
 
     #BCGPhoto {
@@ -447,10 +407,6 @@ display:none;
       margin-top: 12vh;
     }
 
-    /* main { 
-        margin-left: 10vh; */
-        /* decerase font size and adjust padding so all fit on one line nicely */
-    /* }  */
 
     /* this messses up the projects page --> FIX */
     h1 {
@@ -469,8 +425,6 @@ display:none;
   /* add a button for mobile layout to have the menu appear; put logo large in the corner */
   /* used https://www.w3schools.com/howto/howto_js_topnav_responsive.asp for code */
 
-  /* the issue seems to be here: remove these two lines with code for specific classes of what I want to disappear*/
-    /* .navbar a:not(:last-child)  {display: none;} */
 
   .join, .meet, .corporate, #projects2, .contact {display:none};
 
@@ -478,7 +432,6 @@ display:none;
 
   .navbar strong {display: none;}
 
-  /* why is this button not working? */
   .navbar.responsive {
     /* keeps navbar at the top of the page */
     position: fixed;
@@ -502,12 +455,6 @@ display:none;
   
   /* how to align these items below the hamburger */
   .navbar.responsive a:not(:first-child), .navbar.responsive strong, .navbar.responsive #projects2  {
-    /* display: block;  */
-    /* want to position dropdown below the hamburger button */
-    /* align-items: end; */
-    /* right: 100px; This only seeems to be changing the button*/
-    /* position: absolute;
-    right: 0px; */
     display: flex;
     flex-direction: row-reverse;
     margin-right: 20vh;
@@ -515,12 +462,6 @@ display:none;
 
   /* remove second header on mobile */
   section {
-    /* reduce height below 100vh so can show navbar */
-    /* min-height: 100vh; */
-
-    /* trying to get navbar to disapear on final page of mobile */
-    /* width: 100%; */
-
     position: absolute;
     margin-left: 2vh;
     /* put this behind the dropdown */
@@ -533,13 +474,3 @@ display:none;
 
   
 }
-
-
-/* Questions:
-
-
-
-UPDATED TO Dos
-1. Edit entire website
-
-*/
